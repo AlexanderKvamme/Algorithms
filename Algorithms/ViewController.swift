@@ -21,20 +21,20 @@ class Node{
     var key: Int
     var leftChildren = 0 {
         didSet{
-            print("leftChildren of \(key) DIDSET: BalanceFactor now: ", balanceFactor)
+            //print("leftChildren of \(key) DIDSET: BalanceFactor now: ", balanceFactor)
             
             if abs(balanceFactor) >= 2{
-                print("\(key) failed test, sending to pivot\n")
+                print("\(key) failed test with \(balanceFactor), sending to pivot\n")
                 pivot(self)
             }
         }
     }
     var rightChildren = 0 {
         didSet {
-            print("rightChildren of \(key) DIDSET: BalanceFactor now: ", balanceFactor)
+            //print("rightChildren of \(key) DIDSET: BalanceFactor now: ", balanceFactor)
             
             if abs(balanceFactor) >= 2 {
-                print("\(key) failed test, sending to pivot\n")
+                print("\(key) failed test with \(balanceFactor), sending to pivot\n")
                 pivot(self)
             }
         }
@@ -112,10 +112,7 @@ class Node{
     // add function
     func add(_ number: Int){
         
-        /*
-         if self has parent, update self until its the top node, and then add
-         */
-        
+        //har nå vært gjennom insert funksjonen, som itererer seg opp til rootnode, og kaller add() på denne.
         
         if (key >= number && hasNoLeftChild){
             print("adding ", number)
@@ -146,7 +143,6 @@ class Node{
         while case let parent? = node.parent{
             node = parent
         }
-        print("i think root of tree is: ", node.key)
         node.add(value)
     }
 }
@@ -174,14 +170,20 @@ extension Node: CustomStringConvertible{
 extension Node {
     func printInfo(){
         print()
-        print("--PRINTING INFO--")
+        print("---")
         print("key: ", key)
         print("parent:", parent)
-        print("leftChild:", leftChild)
+        
+        if hasLeftChild {
+         print("leftChild:", leftChild!.key)
+        } else {print("leftChild: nil")}
         print("leftChildCount:" ,leftChildren)
-        print("rightChild:", rightChild)
+        
+        if hasRightChild{
+        print("rightChild:", rightChild!.key)
+        } else {print("rightChild: nil")}
         print("rightChildCount:" ,rightChildren)
-        print("--PRINTED INFO--")
+        print("---")
         print()
     }
 }
@@ -194,7 +196,6 @@ extension Node {
         while case let parent? = node.parent{
             node = parent
         }
-        print("top node found to start print off: ", node.key)
         print(node)
     }
 }
@@ -229,9 +230,17 @@ extension Node {
     }
 }
 
+//extension Node {
+//    var balanceFactor: Int {
+//        return rightChildren - leftChildren
+//    }
+//}
+
 extension Node {
     var balanceFactor: Int {
-        return rightChildren - leftChildren
+        
+        return rightHeight - leftHeight
+        //return rightChild?.height - leftChild?.height
     }
 }
 
@@ -244,23 +253,31 @@ extension Node {
         root.printEntireTree()
         
         let rotationType = getRotationType(root)
-        print("decided rotationtype: ", rotationType)
+        print("decided rotationtype: \(rotationType) on \(key)")
         
         switch rotationType{
         case .LL:
+            print("ROTATING LL on ", root.key)
            rotateLL(root)
+            
         case .LR:
-            print("LR")
+            print("ROTATING LR on ", root.key)
             rotateLR(root)
             
         case .RR:
+            print("ROTATING RR on ", root.key)
             rotateRR(root)
+            
         case .RL:
-            print("RL")
+            print("ROTATING RL on ", root.key)
             rotateRL(root)
             
+        case .None:
+            print("didnt find anything")
         }
-        print("pivoting LL done")
+        
+        
+        print("pivoting done")
         print()
         
     }
@@ -270,34 +287,82 @@ extension Node {
 
 extension Node {
     func rotateLL(_ root: Node) {
-        // root er 1'eren
-        // newRoot er -2'eren
+        print("rotating root \(root.key) LL")
+        print("root \(root.key) looks like this at start:")
         root.printInfo()
+        root.printEntireTree()
         
-        let newRoot = root.leftChild!
+//        let newRoot = root.leftChild!
+//        
+//        if root.hasParent {
+//            newRoot.parent = root.parent
+//            newRoot.parent?.leftChild = newRoot
+//        } else {
+//            newRoot.parent = nil
+//        }
+//        
+//        newRoot.rightChild = root
+//        newRoot.rightChildren = 1
+//        
+//        //root.rightChildren = 0
+//        root.leftChild = nil
+//        root.leftChildren = 0
+//        root.parent = newRoot
         
-        if root.hasParent {
-            newRoot.parent = root.parent
-            newRoot.parent?.leftChild = newRoot
-        } else {
-            newRoot.parent = nil
-        }
+        let rootTemp = Node(root.key)
+        let pivotNode = root.leftChild
+        let botNode = pivotNode?.leftChild
         
-        newRoot.rightChild = root
-        newRoot.rightChildren = 1
+        // først koblinger, så children
         
-        //root.rightChildren = 0
-        root.leftChild = nil
-        root.leftChildren = 0
-        root.parent = newRoot
+        rootTemp.leftChild = root.leftChild
+        rootTemp.parent = root.parent
+        rootTemp.rightChild = root.rightChild
+        
+        root.key = pivotNode!.key
+        
+        root.leftChild = botNode
+        root.leftChildren = 1
+        botNode?.parent = root
+        
+        // ny
+        root.rightChild?.leftChild = pivotNode?.rightChild
+        
+        root.rightChild = pivotNode
+        root.rightChildren = 1
+        pivotNode?.key = rootTemp.key
+        
+        botNode?.leftChildren = 1
+        botNode?.rightChildren = 0
+        //botNode?.leftChild = nil
+        botNode?.rightChild = nil
+    
+        //root.rightChild?.rightChild = pivotNode?.
+        root.rightChild?.leftChild = pivotNode?.rightChild
+        root.rightChild?.rightChildren = 1
+        root.rightChild?.leftChildren = 1
+        root.rightChild?.rightChild = rootTemp.rightChild
+        root.rightChild?.rightChild?.leftChild = nil
+        
+        //pivotNode?.leftChildren = 0
+        //pivotNode?.rightChildren = 0
+        //pivotNode?.leftChild = nil
+        //pivotNode?.rightChild = nil
+    
+        
+        // Test
+        print("root \(root.key) looks like this in the end:")
+        root.printInfo()
+        root.printEntireTree()
     }
     
     func rotateLR(_ root: Node){
+        print("rotating  \(key) LR")
         let pivotPoint = root.leftChild!
         let nodeToSwap = pivotPoint.rightChild!
         
-        pivotPoint.disconnect()
-        nodeToSwap.disconnect()
+        //pivotPoint.disconnect()
+        //nodeToSwap.disconnect()
         
         root.leftChild = nodeToSwap
         
@@ -310,28 +375,60 @@ extension Node {
         
         rotateLL(root)
         printEntireTree()
-        
     }
     
     func rotateRR(_ root: Node){
-        print("rotateRR started")
-        let newRoot = root.rightChild!
         
-        if root.hasParent{
-            newRoot.parent = root.parent
-            newRoot.parent?.rightChild = newRoot
-        } else {
-            newRoot.parent = nil
-        }
-        root.parent = newRoot
-        newRoot.leftChild = root
-        newRoot.leftChildren = 1
-        root.rightChild = nil
-        root.rightChildren = 0
-        print("rotateRR ended")
+        print("rotating  \(key) RR")
+//        print("rotateRR started")
+//        let newRoot = root.rightChild!
+//        
+//        if root.hasParent{
+//            newRoot.parent = root.parent
+//            newRoot.parent?.rightChild = newRoot
+//        } else {
+//            newRoot.parent = nil
+//        }
+//        root.parent = newRoot
+//        newRoot.leftChild = root
+//        newRoot.leftChildren = 1
+//        root.rightChild = nil
+//        root.rightChildren = 0
+//        print("rotateRR ended")
+
+        // part deux
+        
+        let tempRoot = Node(root.key)
+        let pivotNode = root.rightChild!
+        let botNode = pivotNode.rightChild!
+        
+        tempRoot.parent = root.parent
+        root.key = pivotNode.key
+        
+        pivotNode.disconnect()
+        botNode.disconnect()
+        
+        root.leftChild = pivotNode
+        pivotNode.key = tempRoot.key
+        pivotNode.parent = root
+        pivotNode.leftChildren = 0
+        pivotNode.rightChildren = 0
+        
+        botNode.parent = root
+        root.rightChild = botNode
+        botNode.leftChildren = 0
+        botNode.rightChildren = 0
+        
+        root.parent = tempRoot.parent
+        root.leftChildren = 1
+        root.rightChildren = 1
+        
+        
+        
     }
     
     func rotateRL(_ root: Node){
+        print("rotating \(key)  RL")
         
         let pivotPoint = root.rightChild!
         let nodeToSwap = pivotPoint.rightChild!
@@ -375,25 +472,30 @@ enum RotationType{
     case LR
     case RR
     case RL
+    case None
 }
 
 func getRotationType(_ node: Node) -> RotationType{
-    if let leftChild = node.leftChild {
-        if leftChild.hasLeftChild {
+//    print("in getRotationType we are testing node:")
+//    node.printInfo()
+    if node.hasLeftChild {
+        if node.leftChild!.hasLeftChild {
             return .LL
         }
-        else {
+        if node.leftChild!.hasRightChild {
             return .LR
         }
     }
-    else {
-        if let rightChild = node.rightChild{
-            if rightChild.hasRightChild {
+    if node.hasRightChild {
+            if node.rightChild!.hasRightChild {
                 return .RR
             }
+        if node.rightChild!.hasLeftChild {
+            return .RL
         }
-        return .RL
     }
+    print("no rotation type found, returning None")
+    return .None
 }
 extension Node {
     func disconnect() {
@@ -404,21 +506,58 @@ extension Node {
     }
 }
 
+// MARK: - Height of rtee
+
+extension Node{
+    
+    var leftHeight: Int {
+        if hasNoLeftChild {
+            return 0
+        } else {
+            return leftChild!.height + 1
+        }
+    }
+    var rightHeight: Int {
+        if hasNoRightChild {
+            return 0
+        } else {
+            return rightChild!.height + 1
+        }
+    }
+    
+    var height: Int{
+        if hasNoChildren{
+            return 0
+        }
+        if hasBothChildren{
+            if leftChild!.height > rightChild!.height{
+                return leftChild!.height + 1
+            } else {
+                return rightChild!.height + 1
+            }
+        }
+        if hasLeftChild{
+            return leftChild!.height + 1
+        }
+        else {
+            return rightChild!.height + 1
+        }
+    }
+}
+
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var testTree = Node(20)
-        testTree.insert(30)
-        testTree.insert(40)
+        var testTree = Node(2)
+        testTree.insert(1)
+        testTree.insert(3)
+        testTree.insert(6)
+        testTree.insert(15)
         testTree.printEntireTree()
-        testTree.insert(50)
-        testTree.insert(60)
-        testTree.printEntireTree()
-
         
-        print("root key now: ", testTree.key)
         print("FINISHED WITHOUT ERRORS")
     }
 }
