@@ -18,7 +18,7 @@ class HashTableTests: XCTestCase {
     
     var hashTable = HashTable<String,String>(capacity: capacity)
     
-//    override func setUp() {
+//    override func setUp() {f
 //        super.setUp()
 //    }
 //    
@@ -45,16 +45,24 @@ class HashTableTests: XCTestCase {
     func test_takesMultipleValues(){
         
         hashTable["Tony"] = "Montana"
-        hashTable["Kim"] = "Madman"
+        XCTAssertEqual(hashTable["Tony"], "Montana")
         
-//        hashTable["Richard"] = "Travelman"
-//        hashTable["Erik"] = "Something"
-//        hashTable["KZ"] = "Skrallemester"
-//        hashTable["The Kid"] = "Luremesteren"
+        hashTable["Richard"] = "Travelman"
+        hashTable["Erik"] = "Something"
+        hashTable["KZ"] = "Skrallemester"
+        hashTable["The Kid"] = "Luremesteren"
         
-
-        XCTAssertEqual(hashTable["Erik"], "Brok")
-        XCTAssertEqual(hashTable["Kim"], "Madman")
+        hashTable["Tony"] = "Banana"
+        XCTAssertEqual(hashTable["Tony"], "Banana")
+        
+        hashTable["Kim"] = "Traveller"
+        
+        // ser ut som om Kim - traveller blir lagt til men at det funksjonen streiker
+        
+        print("testprint: ", hashTable["Kim"]) // printer: nil
+        
+        XCTAssertEqual(hashTable["Kim"], "Traveller")
+        
         
         // kim returnerer Montana
         

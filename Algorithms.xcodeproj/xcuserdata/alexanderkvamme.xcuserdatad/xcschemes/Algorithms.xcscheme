@@ -37,6 +37,11 @@
                BlueprintName = "AlgorithmsTests"
                ReferencedContainer = "container:Algorithms.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "HashTableTests/test_hashTable_isNillable()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "YES">

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0EADDA1E7173F30020732D /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EADD91E7173F30020732D /* Stack.swift */; };
+		DD0EADDC1E7175F10020732D /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EADDB1E7175F10020732D /* StackTests.swift */; };
+		DD0EADDE1E717AAD0020732D /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EADDD1E717AAD0020732D /* StackViewController.swift */; };
 		DD4827C71E6DA440005D2BBE /* HashTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4827C61E6DA440005D2BBE /* HashTableTests.swift */; };
 		DD55394B1E674013000FE857 /* HashTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD55394A1E674013000FE857 /* HashTableModel.swift */; };
 		DD8A33851E64090B005497E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A33841E64090B005497E9 /* AppDelegate.swift */; };
@@ -34,7 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DD4827C61E6DA440005D2BBE /* HashTableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTableTests.swift; sourceTree = "<group>"; };
+		DD0EADD91E7173F30020732D /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		DD0EADDB1E7175F10020732D /* StackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
+		DD0EADDD1E717AAD0020732D /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		DD4827C61E6DA440005D2BBE /* HashTableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HashTableTests.swift; path = AlgorithmsTests/HashTableTests.swift; sourceTree = SOURCE_ROOT; };
 		DD55394A1E674013000FE857 /* HashTableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTableModel.swift; sourceTree = "<group>"; };
 		DD8A33811E64090B005497E9 /* Algorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Algorithms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8A33841E64090B005497E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,10 +79,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD0EADD81E7173BB0020732D /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				DD0EADD91E7173F30020732D /* Stack.swift */,
+				DD0EADDB1E7175F10020732D /* StackTests.swift */,
+				DD0EADDD1E717AAD0020732D /* StackViewController.swift */,
+			);
+			name = Stack;
+			sourceTree = "<group>";
+		};
 		DD5539501E67407F000FE857 /* HashTable */ = {
 			isa = PBXGroup;
 			children = (
 				DD55394A1E674013000FE857 /* HashTableModel.swift */,
+				DD4827C61E6DA440005D2BBE /* HashTableTests.swift */,
 			);
 			name = HashTable;
 			sourceTree = "<group>";
@@ -112,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				DD8A33841E64090B005497E9 /* AppDelegate.swift */,
+				DD0EADD81E7173BB0020732D /* Stack */,
 				DD5539511E674090000FE857 /* AVLTree */,
 				DD5539501E67407F000FE857 /* HashTable */,
 				DD8A33881E64090B005497E9 /* Main.storyboard */,
@@ -126,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				DD8A339B1E64090B005497E9 /* Info.plist */,
-				DD4827C61E6DA440005D2BBE /* HashTableTests.swift */,
 			);
 			path = AlgorithmsTests;
 			sourceTree = "<group>";
@@ -265,7 +282,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0EADDA1E7173F30020732D /* Stack.swift in Sources */,
 				DD55394B1E674013000FE857 /* HashTableModel.swift in Sources */,
+				DD0EADDE1E717AAD0020732D /* StackViewController.swift in Sources */,
 				DD8A33871E64090B005497E9 /* ViewController.swift in Sources */,
 				DD8A33851E64090B005497E9 /* AppDelegate.swift in Sources */,
 			);
@@ -275,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0EADDC1E7175F10020732D /* StackTests.swift in Sources */,
 				DD4827C71E6DA440005D2BBE /* HashTableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

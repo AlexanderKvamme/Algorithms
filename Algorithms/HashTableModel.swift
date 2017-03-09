@@ -29,7 +29,6 @@ public struct HashTable<Key: Hashable, Value> {
         // så totalt, en rad med arrays av buckets som en matrise
     }
     
-    
     // index
     
     private func index(forKey key: Key) -> Int {
@@ -50,12 +49,10 @@ public struct HashTable<Key: Hashable, Value> {
         }
         
         set {
-            // siden vi valgte returverdi "Value?" så blir dette også inputverdien, siden subscript har både gettere og settere må vi ta høyde for begge, og de bruker en felles verdi
-            // vi har her en optional så må også unwrappe
+            // unwrapper siden vi jobber med optionals (kan sende inn nil)
             
             if let input = newValue {
                 // vi har da en faktisk verdi
-                print("gonna run updateValue func: (input, forKey: key) - \(input), forKey: \(key)")
                 updateValue(input, forKey: key)
             } else {
                 print("removing")
@@ -83,11 +80,8 @@ public struct HashTable<Key: Hashable, Value> {
         
         for element in buckets[index] {
             if element.key == key {
-                
-                print("element.key (\(element.key), matched key (\(key))")
+                print("returning element.value: \(element.value)")
                 return element.value
-            } else {
-                return nil
             }
         }
         return nil
@@ -95,23 +89,26 @@ public struct HashTable<Key: Hashable, Value> {
     
     // updateValue function
     
-    mutating private func updateValue(_ newValue: Value, forKey newKey: Key){
-        let index = getIndex(forKey: newKey)
-        let oldValue = newValue
+    mutating private func updateValue(_ newValue: Value, forKey key: Key){
+        print("You have requested updating \(key) to \(newValue)")
+        let index = getIndex(forKey: key)
+        //let oldValue = newValue
         
         for (i, element) in buckets[index].enumerated() {
             
-            print("(i, element) = (\(i), \(element))")
-            
-            if element.key != newKey {
-                print("updated \(buckets[index][i].value) to \(newValue)")
+            if element.key == key {
+                print("checking index: ", i)
+                print("key \(key) matchet elementets key \(element.key)")
                 buckets[index][i].value = newValue
-                print("so updated \(oldValue) to \(newValue)")
+                print("updated \(buckets[index][i].value) to \(newValue)")
+                return
             }
         }
         
         // if i get here, theres no value in the bucket so I add it
-        buckets[index].append((newKey, newValue))
+        print("Value \(key) with \(newValue) did not exist. Appending it now")
+        self.buckets[index].append((key, newValue))
+        
         self.count += 1
     }
     
