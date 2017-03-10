@@ -20,7 +20,7 @@ class StackTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        let myFirstNode = StackNode<String>("first node")
+        var myFirstNode = StackNode<String>("first node")
         myStack = Stack<String>(nil)
     }
     
@@ -58,18 +58,24 @@ class StackTests: XCTestCase {
     }
     
     func test_stack_pop(){
-        let mySecondNode = StackNode<String>("second bam")
-        let myThirdNode = StackNode<String>("third bam")
+        let mySecondNode = StackNode<String>("second node")
+        let myThirdNode = StackNode<String>("third node")
         
         myStack.push(mySecondNode)
         myStack.push(myThirdNode)
-        
         XCTAssertEqual(myThirdNode.getValue(), myStack.topNode?.getValue())
         
         myStack.pop()
         XCTAssertEqual(myStack.topNode?.getValue(), mySecondNode.getValue())
-        
     }
     
-    
+    func test_stack_isCustomStringConvertible(){
+        let myFirstNode = StackNode<String>("first node")
+        let mySecondNode = StackNode<String>("second node")
+        let myPrintableStack = Stack<String>(myFirstNode)
+        let targetString = "\(mySecondNode.getValue())\n\(myFirstNode.getValue())"
+        myPrintableStack.push(mySecondNode)
+        
+        XCTAssertEqual(targetString, myPrintableStack.description)
+    }
 }

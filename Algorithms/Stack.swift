@@ -10,6 +10,7 @@ import Foundation
 
 // MARK: - Node
 
+
 public class StackNode<T> {
     
     private var value: T?
@@ -22,9 +23,11 @@ public class StackNode<T> {
     
     //getValue
     func getValue() -> T?{
+        if let unwrappedValue = value {
+            return unwrappedValue
+        }
         return value
     }
-    
 }
 
 // MARK: - Stack
@@ -34,7 +37,8 @@ public class Stack<T> {
     var topNode: StackNode<T>?
     var queue = [StackNode<T>]()
     
-    //init
+    // init
+    
     init(_ initialNode: StackNode<T>?) {
         
         if let initialNode = initialNode {
@@ -47,8 +51,7 @@ public class Stack<T> {
         return topNode?.getValue()
     }
     
-
-    // funksjoner
+    // MARK: - Funksjoner
     
     func push(_ newNode: StackNode<T>){
         queue.append(newNode)
@@ -56,8 +59,22 @@ public class Stack<T> {
         topNode = newNode
     }
     
-    func pop() -> StackNode<T>? {
+    @discardableResult func pop() -> StackNode<T>? {
         topNode = topNode?.nextNode
         return queue.removeLast()
+    }
+    
+    public var description: String {
+        
+        var stringToReturn = ""
+        
+        var node = topNode
+        stringToReturn = "" + "\(node?.getValue())"
+        
+        while case let current? = node?.nextNode {
+            stringToReturn += "\n\(current.getValue())"
+            node = current
+        }
+        return stringToReturn
     }
 }
