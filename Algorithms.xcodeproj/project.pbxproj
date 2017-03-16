@@ -12,11 +12,17 @@
 		DD0EADDE1E717AAD0020732D /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EADDD1E717AAD0020732D /* StackViewController.swift */; };
 		DD4827C71E6DA440005D2BBE /* HashTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4827C61E6DA440005D2BBE /* HashTableTests.swift */; };
 		DD55394B1E674013000FE857 /* HashTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD55394A1E674013000FE857 /* HashTableModel.swift */; };
+		DD6699D41E742B5800BC0E6D /* VertexExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6699D31E742B5800BC0E6D /* VertexExtensions.swift */; };
+		DD7106CB1E72ECC600E98D06 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7106CA1E72ECC600E98D06 /* Graph.swift */; };
+		DD7106CD1E7335E700E98D06 /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7106CC1E7335E700E98D06 /* GraphTests.swift */; };
 		DD8A33851E64090B005497E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A33841E64090B005497E9 /* AppDelegate.swift */; };
 		DD8A33871E64090B005497E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8A33861E64090B005497E9 /* ViewController.swift */; };
 		DD8A338A1E64090B005497E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8A33881E64090B005497E9 /* Main.storyboard */; };
 		DD8A338C1E64090B005497E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8A338B1E64090B005497E9 /* Assets.xcassets */; };
 		DD8A338F1E64090B005497E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8A338D1E64090B005497E9 /* LaunchScreen.storyboard */; };
+		DDB1BF5E1E76D84400319034 /* EdgeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1BF5D1E76D84400319034 /* EdgeExtensions.swift */; };
+		DDC01F191E785C590052C1F5 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC01F181E785C590052C1F5 /* Heap.swift */; };
+		DDC01F1B1E785C6A0052C1F5 /* HeapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC01F1A1E785C6A0052C1F5 /* HeapTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,9 @@
 		DD0EADDD1E717AAD0020732D /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
 		DD4827C61E6DA440005D2BBE /* HashTableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HashTableTests.swift; path = AlgorithmsTests/HashTableTests.swift; sourceTree = SOURCE_ROOT; };
 		DD55394A1E674013000FE857 /* HashTableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTableModel.swift; sourceTree = "<group>"; };
+		DD6699D31E742B5800BC0E6D /* VertexExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VertexExtensions.swift; sourceTree = "<group>"; };
+		DD7106CA1E72ECC600E98D06 /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		DD7106CC1E7335E700E98D06 /* GraphTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
 		DD8A33811E64090B005497E9 /* Algorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Algorithms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8A33841E64090B005497E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD8A33861E64090B005497E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +61,9 @@
 		DD8A33951E64090B005497E9 /* AlgorithmsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorithmsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8A339B1E64090B005497E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD8A33A01E64090B005497E9 /* AlgorithmsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorithmsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDB1BF5D1E76D84400319034 /* EdgeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeExtensions.swift; sourceTree = "<group>"; };
+		DDC01F181E785C590052C1F5 /* Heap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
+		DDC01F1A1E785C6A0052C1F5 /* HeapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeapTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +118,17 @@
 			name = AVLTree;
 			sourceTree = "<group>";
 		};
+		DD7106C91E72ECB400E98D06 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				DD7106CA1E72ECC600E98D06 /* Graph.swift */,
+				DD6699D31E742B5800BC0E6D /* VertexExtensions.swift */,
+				DDB1BF5D1E76D84400319034 /* EdgeExtensions.swift */,
+				DD7106CC1E7335E700E98D06 /* GraphTests.swift */,
+			);
+			name = Graph;
+			sourceTree = "<group>";
+		};
 		DD8A33781E64090B005497E9 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +151,8 @@
 		DD8A33831E64090B005497E9 /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				DDC01F171E785C4B0052C1F5 /* Heap */,
+				DD7106C91E72ECB400E98D06 /* Graph */,
 				DD8A33841E64090B005497E9 /* AppDelegate.swift */,
 				DD0EADD81E7173BB0020732D /* Stack */,
 				DD5539511E674090000FE857 /* AVLTree */,
@@ -146,6 +171,15 @@
 				DD8A339B1E64090B005497E9 /* Info.plist */,
 			);
 			path = AlgorithmsTests;
+			sourceTree = "<group>";
+		};
+		DDC01F171E785C4B0052C1F5 /* Heap */ = {
+			isa = PBXGroup;
+			children = (
+				DDC01F181E785C590052C1F5 /* Heap.swift */,
+				DDC01F1A1E785C6A0052C1F5 /* HeapTests.swift */,
+			);
+			name = Heap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,11 +316,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC01F191E785C590052C1F5 /* Heap.swift in Sources */,
+				DD7106CB1E72ECC600E98D06 /* Graph.swift in Sources */,
 				DD0EADDA1E7173F30020732D /* Stack.swift in Sources */,
 				DD55394B1E674013000FE857 /* HashTableModel.swift in Sources */,
 				DD0EADDE1E717AAD0020732D /* StackViewController.swift in Sources */,
 				DD8A33871E64090B005497E9 /* ViewController.swift in Sources */,
+				DDB1BF5E1E76D84400319034 /* EdgeExtensions.swift in Sources */,
 				DD8A33851E64090B005497E9 /* AppDelegate.swift in Sources */,
+				DD6699D41E742B5800BC0E6D /* VertexExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +333,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD0EADDC1E7175F10020732D /* StackTests.swift in Sources */,
+				DD7106CD1E7335E700E98D06 /* GraphTests.swift in Sources */,
 				DD4827C71E6DA440005D2BBE /* HashTableTests.swift in Sources */,
+				DDC01F1B1E785C6A0052C1F5 /* HeapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
