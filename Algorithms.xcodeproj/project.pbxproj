@@ -10,6 +10,7 @@
 		DD0EADDA1E7173F30020732D /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EADD91E7173F30020732D /* Stack.swift */; };
 		DD0EADDC1E7175F10020732D /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EADDB1E7175F10020732D /* StackTests.swift */; };
 		DD0EADDE1E717AAD0020732D /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EADDD1E717AAD0020732D /* StackViewController.swift */; };
+		DD196EE11E7B4F6800EF7B7F /* HeapExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD196EE01E7B4F6800EF7B7F /* HeapExtensions.swift */; };
 		DD4827C71E6DA440005D2BBE /* HashTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4827C61E6DA440005D2BBE /* HashTableTests.swift */; };
 		DD55394B1E674013000FE857 /* HashTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD55394A1E674013000FE857 /* HashTableModel.swift */; };
 		DD6699D41E742B5800BC0E6D /* VertexExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6699D31E742B5800BC0E6D /* VertexExtensions.swift */; };
@@ -46,6 +47,7 @@
 		DD0EADD91E7173F30020732D /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		DD0EADDB1E7175F10020732D /* StackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
 		DD0EADDD1E717AAD0020732D /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		DD196EE01E7B4F6800EF7B7F /* HeapExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeapExtensions.swift; sourceTree = "<group>"; };
 		DD4827C61E6DA440005D2BBE /* HashTableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HashTableTests.swift; path = AlgorithmsTests/HashTableTests.swift; sourceTree = SOURCE_ROOT; };
 		DD55394A1E674013000FE857 /* HashTableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTableModel.swift; sourceTree = "<group>"; };
 		DD6699D31E742B5800BC0E6D /* VertexExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VertexExtensions.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				DDC01F181E785C590052C1F5 /* Heap.swift */,
 				DDC01F1A1E785C6A0052C1F5 /* HeapTests.swift */,
+				DD196EE01E7B4F6800EF7B7F /* HeapExtensions.swift */,
 			);
 			name = Heap;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				DDC01F191E785C590052C1F5 /* Heap.swift in Sources */,
 				DD7106CB1E72ECC600E98D06 /* Graph.swift in Sources */,
 				DD0EADDA1E7173F30020732D /* Stack.swift in Sources */,
+				DD196EE11E7B4F6800EF7B7F /* HeapExtensions.swift in Sources */,
 				DD55394B1E674013000FE857 /* HashTableModel.swift in Sources */,
 				DD0EADDE1E717AAD0020732D /* StackViewController.swift in Sources */,
 				DD8A33871E64090B005497E9 /* ViewController.swift in Sources */,

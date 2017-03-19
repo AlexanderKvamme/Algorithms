@@ -39,7 +39,16 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "GraphTests">
+               </Test>
+               <Test
+                  Identifier = "HashTableTests">
+               </Test>
+               <Test
                   Identifier = "HashTableTests/test_hashTable_isNillable()">
+               </Test>
+               <Test
+                  Identifier = "StackTests">
                </Test>
             </SkippedTests>
          </TestableReference>
